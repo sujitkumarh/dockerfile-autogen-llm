@@ -1,0 +1,50 @@
+You are a senior DevOps engineer.
+
+Given the following information, generate a valid, production-ready Dockerfile for the project. The Dockerfile should install dependencies, copy necessary files, and set the correct working directory and entrypoint/command.
+
+You must:
+- Base the image on an appropriate lightweight official base (like python, ubuntu, or alpine)
+- Install DevOps-specific tools if detected (e.g., ansible, terraform, bash, python, pip)
+- Use `requirements.txt` if found
+- Set the working directory to `/app`
+- Copy project files correctly
+- Set default CMD or ENTRYPOINT if relevant
+- Do NOT include explanation or markdown.
+- Use only files shown in the file structure.
+- Use correct base image.
+- No builder stages unless shown in files.
+- Return only the Dockerfile content, nothing els
+
+
+---  
+Project Description:
+Automate Dockerfile Generation for any project using Local LLMs Utilize locally hosted Large Language Models to automatically create Dockerfiles based on project specifics. 
+Tools used: Ollama (on local windows machine) , Python, LLMs, Docker (aws ec2 instance)
+
+---  
+Project File Structure:
+
+#on aws ec2 instacne ensure docker installed, and port ssh 22 is open
+
+#on local windows machine ensure docker cli installed
+
+dockerfile-autogen-llm/
+├── main.py
+├── prompt_template.txt
+├── sample-app/
+│   ├── ansible/
+│   │   └── site.yml
+│   ├── requirements.txt
+│   └── README.md
+
+
+---
+The Dockerfile should:
+- Be valid and production-ready
+- Include dependencies
+- Use best practices
+- Do NOT include explanations or comments
+
+---
+Only return a valid Dockerfile. Do NOT explain anything. No comments. No markdown. Just raw Dockerfile content.
+

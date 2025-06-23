@@ -66,7 +66,7 @@ Install dependencies:
   sudo apt update && sudo apt install tree autossh -y
   sudo apt update
   sudo apt install -y docker-cli
-
+  ```
 
 SSH access to EC2 (with Docker installed)
 

@@ -78,11 +78,13 @@ Docker installed:
   sudo usermod -aG docker ubuntu
   newgrp docker
   Docker daemon listening over TCP:
+  ```
 
 Edit:
 
   ```bash
   sudo vi nano /lib/systemd/system/docker.service
+  ```
 
 find line:
   ExecStart=/usr/bin/dockerd -H fd://
@@ -96,13 +98,14 @@ Reload:
   sudo systemctl daemon-reexec
   sudo systemctl daemon-reload
   sudo systemctl restart docker
+  ```
 
 🚀 How to Use
 1. Start SSH Tunnel (from WSL)
 
   ```bash
   ssh -i ~/.ssh/LLM.pem -NL localhost:2375:/var/run/docker.sock ubuntu@<EC2_PUBLIC_IP>
-
+  ```
 📌 Leave this terminal open during the entire operation.
 
 2. In Another WSL Terminal
@@ -110,14 +113,14 @@ Reload:
   ```bash
   export DOCKER_HOST=tcp://localhost:2375
   docker info       # ✅ Ensure Docker is reachable
-
+  ```
 3. Run LLM to Generate Dockerfile
 
 
   ```bash
   cd /mnt/c/.../dockerfile-autogen-llm
   python3 main.py
-
+  ```
 ✔️ This will:
 
 Parse the sample-app structure
@@ -132,7 +135,7 @@ Save Dockerfile locally
 
   ```bash
   docker build -t devops-image -f Dockerfile .
-
+  ```
 
 🧠 File Explanations
 File	Purpose
@@ -150,12 +153,12 @@ sample-app/	Sample DevOps project folder (e.g., Ansible setup)
 
   ```bash
   ssh -i ~/.ssh/LLM.pem -NL localhost:2375:/var/run/docker.sock ubuntu@<EC2_PUBLIC_IP>
-
+  ```
 💡 Tip: use autossh for persistent tunnel:
   ```bash
   sudo apt install autossh
   autossh -M 0 -f -N -i ~/.ssh/LLM.pem -L 2375:/var/run/docker.sock ubuntu@13.233.194.42
-
+  ```
 
 🐳 Docker Build Hangs or Fails
 ❌ Issue:
@@ -169,7 +172,7 @@ Check Dockerfile content:
   ```bash
   cat Dockerfile
   Validate prompt logic in main.py
-
+  ```
 Ensure sample-app/ has valid files: e.g. main.py, requirements.txt, etc.
 
 🧠 LLM Doesn’t Respond Properly
@@ -180,13 +183,13 @@ Ensure model is pulled:
 
   ```bash
   ollama pull llama3.2
+  ```
 Check prompt_template.txt format
-
 Try direct prompt via CLI:
 
   ```bash
   ollama run llama3.2
-
+  ```
 📦 Future Additions
 ✅ Datadog agent integration
 🔄 Live prompt tuning

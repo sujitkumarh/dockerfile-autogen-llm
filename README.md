@@ -112,7 +112,7 @@ Reload:
 
   ```bash
   export DOCKER_HOST=tcp://localhost:2375
-  docker info       # ✅ Ensure Docker is reachable
+  docker info       #  Ensure Docker is reachable
   ```
 3. Run LLM to Generate Dockerfile
 
@@ -148,6 +148,7 @@ sample-app/	Sample DevOps project folder (e.g., Ansible setup)
 
 ⚠️ Common Errors & Solutions
 ❌ Error: 🔁 SSH Tunnel Disconnects or Fails
+
 ✅ Solution: Ensure the SSH tunnel is actively running:
 
 
@@ -171,19 +172,17 @@ Check Dockerfile content:
 
   ```bash
   cat Dockerfile
-  Validate prompt logic in main.py
   ```
+  Validate prompt logic in main.py
+
 Ensure sample-app/ has valid files: e.g. main.py, requirements.txt, etc.
 
 🧠 LLM Doesn’t Respond Properly
 ❌ Error:
 ❌ LLM returned no output.
+
 ✅ Solution:
 Ensure model is pulled:
-
-  ```bash
-  ollama pull llama3.2
-  ```
 Check prompt_template.txt format
 Try direct prompt via CLI:
 
@@ -203,6 +202,7 @@ Try direct prompt via CLI:
   python3 main.py
   docker build -t devops-image -f Dockerfile .
   docker run devops-image
+  ```
 
 👨‍💻 Author
 Sujitkumar hujare
